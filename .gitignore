@@ -1,0 +1,10 @@
+# MkDocs Build and Source Files
+.DS_Store             # Mac OS file system file
+site/                 # MkDocs build directory (Generated site files)
+
+# Python Compilation and Cache
+__pycache__/          # Python compiled bytecode cache directory
+*.pyc                 # Python compiled files
+
+# Jupyter/Colab Temporary Files
+.ipynb_checkpoints/   # Temporary checkpoint files created by Jupyter and Colab

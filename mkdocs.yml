@@ -1,0 +1,51 @@
+site_name: Python Refresher
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - search.share
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 2
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.arithmatex
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist
+
+nav:
+  - Home: index.md
+  - 1. Computational Thinking: 01_principles.md
+  - 2. Input-Process-Output: 02_ipo.md
+  - 3. Algorithms: 03_algorithms.md
+  - 4. Variables and Constants: 04_variables.md
+  - 5. Data Types: 05_data_types.md
+  - 6. Arithmetic & Basic Expressions: 06_arithmetic.md
+  - "7. Conditions: IF, ELIF, ELSE": 07_conditions.md
+  - 12. Final Challenge: 12_final_challenge.md
+
+  - Resources:
+    - Glossary: glossary.md
+    - Google Colab – Beginner Guide: colab_instructions.md
