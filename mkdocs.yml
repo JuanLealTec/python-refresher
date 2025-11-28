@@ -1,5 +1,8 @@
 site_name: Python Refresher
 
+site_url: https://juanlealtec.github.io/python-refresher/
+use_directory_urls: true
+
 theme:
   name: material
   features:
