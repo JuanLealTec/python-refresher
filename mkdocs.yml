@@ -1,6 +1,7 @@
 site_name: Python Refresher
 
 site_url: https://juanlealtec.github.io/python-refresher/
+repo_url: https://github.com/JuanLealTec/python-refresher
 use_directory_urls: true
 
 theme:
