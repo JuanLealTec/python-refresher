@@ -713,55 +713,40 @@
 <li>The <strong><code>elif</code></strong> (short for <em>else if</em>) checks additional conditions <strong>only if all preceding if/elif conditions were False</strong>.  </li>
 <li>The <strong><code>else</code></strong> block runs only if none of the previous conditions were True.  </li>
 </ul>
-<p><strong>Important points:</strong> - Only the <strong>first True condition executes</strong>, and the rest of the chain is skipped.<br />
+<p><strong>Important points:</strong>
+- Only the <strong>first True condition executes</strong>, and the rest of the chain is skipped.<br />
 - Use <strong>relational operators</strong> (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>) to compare values.<br />
 - <strong>Indentation</strong> is mandatory to define which statements belong to each conditional block.</p>
 <h2 id="11-relational-operators">1.1 Relational Operators<a class="headerlink" href="#11-relational-operators" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Operator</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><code>==</code></td>
-<td style="text-align: left;">Equals</td>
-<td style="text-align: left;"><code>x == 10</code> → True if x is 10</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>!=</code></td>
-<td style="text-align: left;">Not equal</td>
-<td style="text-align: left;"><code>x != 5</code> → True if x is not 5</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&gt;</code></td>
-<td style="text-align: left;">Greater than</td>
-<td style="text-align: left;"><code>x &gt; 3</code> → True if x is greater than 3</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&lt;</code></td>
-<td style="text-align: left;">Less than</td>
-<td style="text-align: left;"><code>x &lt; 7</code> → True if x is less than 7</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&gt;=</code></td>
-<td style="text-align: left;">Greater than or equal</td>
-<td style="text-align: left;"><code>x &gt;= 18</code> → True if x is 18 or older</td>
-</tr>
-<tr>
-<td style="text-align: left;"><code>&lt;=</code></td>
-<td style="text-align: left;">Less than or equal</td>
-<td style="text-align: left;"><code>x &lt;= 100</code> → True if x is 100 or less</td>
-</tr>
-</tbody>
-</table>
+<p>Relational operators allow Python to compare values and evaluate conditions. The most common ones are:
+| Operator | Description | Example |
+| :--- | :--- | :--- |
+| <code>==</code> | Equals | <code>x == 10</code> → True if x is 10 |
+| <code>!=</code> | Not equal | <code>x != 5</code> → True if x is not 5 |
+| <code>&gt;</code> | Greater than | <code>x &gt; 3</code> → True if x is greater than 3 |
+| <code>&lt;</code> | Less than | <code>x &lt; 7</code> → True if x is less than 7 |
+| <code>&gt;=</code> | Greater than or equal | <code>x &gt;= 18</code> → True if x is 18 or older |
+| <code>&lt;=</code> | Less than or equal | <code>x &lt;= 100</code> → True if x is 100 or less |</p>
+</details>
+<details class="quote">
+<summary>2. Python Shorts (Video)</summary>
+<p>A quick Python Shorts video showing how to use if…elif…else.</p>
+<p><div style="position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 9 / 16;">
+    <iframe 
+        src="https://www.youtube.com/embed/7FILd3kvs70"
+        title="Python Shorts: if…elif…else"
+        style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div></p>
 </details>
 <details class="example">
-<summary>2. Commented Examples</summary>
-<h3 id="21-basic-ifelse-structure">2.1 Basic <code>if...else</code> Structure<a class="headerlink" href="#21-basic-ifelse-structure" title="Permanent link">&para;</a></h3>
+<summary>3. Commented Examples</summary>
+<h3 id="31-basic-ifelse-structure">3.1 Basic <code>if...else</code> Structure<a class="headerlink" href="#31-basic-ifelse-structure" title="Permanent link">&para;</a></h3>
+<p><strong>Note:</strong> These examples assume the user enters numeric input.<br />
+If a non-numeric value is entered, Python will raise an error.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ask for age and convert to integer</span>
 <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;How old are you? &quot;</span><span class="p">))</span>
 
@@ -772,7 +757,7 @@
     <span class="c1"># Executes if the above condition is False</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry, you cannot enter the party.&quot;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="22-using-elif-for-multiple-conditions">2.2 Using <code>elif</code> for Multiple Conditions<a class="headerlink" href="#22-using-elif-for-multiple-conditions" title="Permanent link">&para;</a></h3>
+<h3 id="32-using-elif-for-multiple-conditions">3.2 Using <code>elif</code> for Multiple Conditions<a class="headerlink" href="#32-using-elif-for-multiple-conditions" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Ask for student&#39;s average grade</span>
 <span class="n">average</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your average grade: &quot;</span><span class="p">))</span>
 
@@ -788,8 +773,8 @@
 </code></pre></div>
 </details>
 <details class="question">
-<summary>3. Short Practice Exercises</summary>
-<h3 id="31-operator-selection">3.1: Operator Selection<a class="headerlink" href="#31-operator-selection" title="Permanent link">&para;</a></h3>
+<summary>4. Short Practice Exercises</summary>
+<h3 id="41-operator-selection">4.1: Operator Selection<a class="headerlink" href="#41-operator-selection" title="Permanent link">&para;</a></h3>
 <p>Which relational operator checks if the variable <code>inventory</code> is <strong>strictly less than</strong> 100?</p>
 <p>A) <code>&lt;= 100</code><br />
 B) <code>&lt; 100</code><br />
@@ -798,7 +783,7 @@ C) <code>!= 100</code></p>
 <summary>Show solution</summary>
 <p><strong>B) <code>&lt; 100</code></strong></p>
 </details>
-<h3 id="32-prediction-of-output">3.2: Prediction of Output<a class="headerlink" href="#32-prediction-of-output" title="Permanent link">&para;</a></h3>
+<h3 id="42-prediction-of-output">4.2: Prediction of Output<a class="headerlink" href="#42-prediction-of-output" title="Permanent link">&para;</a></h3>
 <p>What is the final output of the following code block?</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
@@ -813,7 +798,7 @@ C) <code>!= 100</code></p>
 <p><strong>Output:</strong> <code>"A"</code><br />
 <em>Explanation: The first condition (<code>x &gt; 5</code>) is True, so the rest of the <code>elif</code>/<code>else</code> chain is skipped.</em></p>
 </details>
-<h3 id="33-error-correction">3.3: Error Correction<a class="headerlink" href="#33-error-correction" title="Permanent link">&para;</a></h3>
+<h3 id="43-error-correction">4.3: Error Correction<a class="headerlink" href="#43-error-correction" title="Permanent link">&para;</a></h3>
 <p>How should the code be corrected to check if <code>current_state</code> is equal to <code>"running"</code>?</p>
 <div class="highlight"><pre><span></span><code><span class="n">current_state</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span>
 <span class="c1"># if current_state = &quot;running&quot;:</span>
@@ -827,7 +812,7 @@ C) <code>!= 100</code></p>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;System active&quot;</span><span class="p">)</span>
 </code></pre></div></p>
 </details>
-<h3 id="34-indentation-error">3.4: Indentation Error<a class="headerlink" href="#34-indentation-error" title="Permanent link">&para;</a></h3>
+<h3 id="44-indentation-error">4.4: Indentation Error<a class="headerlink" href="#44-indentation-error" title="Permanent link">&para;</a></h3>
 <p>Identify the error in the following conditional structure:</p>
 <div class="highlight"><pre><span></span><code><span class="n">user_status</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="n">user_status</span><span class="p">:</span>
@@ -839,13 +824,13 @@ C) <code>!= 100</code></p>
 </details>
 </details>
 <details class="tip">
-<summary>4. Google Colab: Try It Yourself</summary>
+<summary>5. Google Colab: Try It Yourself</summary>
 <p>Practice conditional statements, if...elif...else chains, and input conversion with this Colab notebook:</p>
 <p>👉 <a href="https://colab.research.google.com/drive/1QIbINLkf4zGFNGPqJ2j2iaRtuL1Zmg6d?usp=sharing" rel="noopener" target="_blank">Open the Conditions Colab notebook ↗</a></p>
 <p><span style="color:#1a73e8;"><strong>First time using Google Colab?</strong></span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a></p>
 </details>
 <details class="question">
-<summary>5. Mini-Quiz</summary>
+<summary>6. Mini-Quiz</summary>
 <h3 id="q1-what-happens-when-a-condition-in-an-ifelifelse-chain-evaluates-to-true">Q1. What happens when a condition in an if...elif...else chain evaluates to True?<a class="headerlink" href="#q1-what-happens-when-a-condition-in-an-ifelifelse-chain-evaluates-to-true" title="Permanent link">&para;</a></h3>
 <p>A) The program stops immediately<br />
 B) All remaining conditions are evaluated<br />
@@ -893,17 +878,16 @@ D) Loop  </p>
 </details>
 </details>
 <details class="warning">
-<summary>6. Common Mistakes</summary>
+<summary>7. Common Mistakes</summary>
 <ul>
 <li>Using <code>=</code> instead of <code>==</code> for comparisons  </li>
 <li>Forgetting the colon <code>:</code> after if, elif, or else statements  </li>
 <li>Incorrect indentation of conditional blocks  </li>
 <li>Not converting input to int/float before comparing  </li>
-<li>Using multiple independent if statements instead of an if...elif...else chain when conditions are mutually exclusive</li>
 </ul>
 </details>
 <details class="note">
-<summary>7. Summary Diagram</summary>
+<summary>8. Summary Diagram</summary>
 <pre class="mermaid"><code>mindmap
   root((Conditional Structures))
     Basic Conditional
@@ -918,7 +902,7 @@ D) Loop  </p>
       Proper Indentation</code></pre>
 </details>
 <details class="tip">
-<summary>8. Optional Extensions</summary>
+<summary>9. Optional Extensions</summary>
 <ul>
 <li>Write a program that asks the user for a number and prints whether it is positive, negative, or zero using if...elif...else  </li>
 <li>Modify the scholarship example to include an additional category for students with average 75–84 and print <code>"Merit Scholarship"</code>  </li>
