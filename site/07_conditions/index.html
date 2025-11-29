@@ -1,0 +1,989 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://juanlealtec.github.io/python-refresher/07_conditions/">
+      
+      
+        <link rel="prev" href="../06_arithmetic/">
+      
+      
+        <link rel="next" href="../12_final_challenge/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>7. Conditions: IF, ELIF, ELSE - Python Refresher</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-conditions-if-elif-else" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python Refresher" class="md-header__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Refresher
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Conditions: IF, ELIF, ELSE
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Refresher" class="md-nav__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Refresher
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Computational Thinking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ipo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Input-Process-Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Variables and Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_arithmetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Arithmetic & Basic Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Conditions: IF, ELIF, ELSE
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Conditions: IF, ELIF, ELSE
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-relational-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Relational Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_final_challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Final Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colab_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Colab – Beginner Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-relational-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Relational Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="7-conditions-if-elif-else">7. Conditions: IF, ELIF, ELSE<a class="headerlink" href="#7-conditions-if-elif-else" title="Permanent link">&para;</a></h1>
+<p>Conditional statements are fundamental in programming because they allow a program to <strong>make decisions</strong> and execute different code based on specific conditions. Using <code>if</code>, <code>elif</code>, and <code>else</code>, a program can respond to different situations, compare values, and guide the flow of execution. Understanding these statements is essential for building dynamic and interactive Python programs.</p>
+<details class="info">
+<summary>1. Brief Explanation</summary>
+<p>Conditional structures allow a program to make decisions based on <strong>Boolean conditions</strong>.  </p>
+<ul>
+<li>The <strong><code>if</code></strong> statement checks the first condition; if True, its indented code block runs.  </li>
+<li>The <strong><code>elif</code></strong> (short for <em>else if</em>) checks additional conditions <strong>only if all preceding if/elif conditions were False</strong>.  </li>
+<li>The <strong><code>else</code></strong> block runs only if none of the previous conditions were True.  </li>
+</ul>
+<p><strong>Important points:</strong> - Only the <strong>first True condition executes</strong>, and the rest of the chain is skipped.<br />
+- Use <strong>relational operators</strong> (<code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>) to compare values.<br />
+- <strong>Indentation</strong> is mandatory to define which statements belong to each conditional block.</p>
+<h2 id="11-relational-operators">1.1 Relational Operators<a class="headerlink" href="#11-relational-operators" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>==</code></td>
+<td style="text-align: left;">Equals</td>
+<td style="text-align: left;"><code>x == 10</code> → True if x is 10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>!=</code></td>
+<td style="text-align: left;">Not equal</td>
+<td style="text-align: left;"><code>x != 5</code> → True if x is not 5</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: left;">Greater than</td>
+<td style="text-align: left;"><code>x &gt; 3</code> → True if x is greater than 3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: left;">Less than</td>
+<td style="text-align: left;"><code>x &lt; 7</code> → True if x is less than 7</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: left;">Greater than or equal</td>
+<td style="text-align: left;"><code>x &gt;= 18</code> → True if x is 18 or older</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: left;">Less than or equal</td>
+<td style="text-align: left;"><code>x &lt;= 100</code> → True if x is 100 or less</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="example">
+<summary>2. Commented Examples</summary>
+<h3 id="21-basic-ifelse-structure">2.1 Basic <code>if...else</code> Structure<a class="headerlink" href="#21-basic-ifelse-structure" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ask for age and convert to integer</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;How old are you? &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="c1"># Executes if age is 18 or older</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can enter the party!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Executes if the above condition is False</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sorry, you cannot enter the party.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="22-using-elif-for-multiple-conditions">2.2 Using <code>elif</code> for Multiple Conditions<a class="headerlink" href="#22-using-elif-for-multiple-conditions" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Ask for student&#39;s average grade</span>
+<span class="n">average</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your average grade: &quot;</span><span class="p">))</span>
+
+<span class="k">if</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="p">:</span>
+    <span class="c1"># First condition checked</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Excellence Scholarship&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">85</span><span class="p">:</span>
+    <span class="c1"># Checked only if the first condition was False</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Academic Scholarship&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Executes if neither of the above conditions is True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Scholarship&quot;</span><span class="p">)</span>
+</code></pre></div>
+</details>
+<details class="question">
+<summary>3. Short Practice Exercises</summary>
+<h3 id="31-operator-selection">3.1: Operator Selection<a class="headerlink" href="#31-operator-selection" title="Permanent link">&para;</a></h3>
+<p>Which relational operator checks if the variable <code>inventory</code> is <strong>strictly less than</strong> 100?</p>
+<p>A) <code>&lt;= 100</code><br />
+B) <code>&lt; 100</code><br />
+C) <code>!= 100</code></p>
+<details class="note">
+<summary>Show solution</summary>
+<p><strong>B) <code>&lt; 100</code></strong></p>
+</details>
+<h3 id="32-prediction-of-output">3.2: Prediction of Output<a class="headerlink" href="#32-prediction-of-output" title="Permanent link">&para;</a></h3>
+<p>What is the final output of the following code block?</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p><strong>Output:</strong> <code>"A"</code><br />
+<em>Explanation: The first condition (<code>x &gt; 5</code>) is True, so the rest of the <code>elif</code>/<code>else</code> chain is skipped.</em></p>
+</details>
+<h3 id="33-error-correction">3.3: Error Correction<a class="headerlink" href="#33-error-correction" title="Permanent link">&para;</a></h3>
+<p>How should the code be corrected to check if <code>current_state</code> is equal to <code>"running"</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="n">current_state</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span>
+<span class="c1"># if current_state = &quot;running&quot;:</span>
+<span class="c1">#     print(&quot;System active&quot;)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p>The comparison operator <code>==</code> must be used instead of the assignment operator <code>=</code>:
+<div class="highlight"><pre><span></span><code><span class="n">current_state</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span>
+<span class="k">if</span> <span class="n">current_state</span> <span class="o">==</span> <span class="s2">&quot;running&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;System active&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</details>
+<h3 id="34-indentation-error">3.4: Indentation Error<a class="headerlink" href="#34-indentation-error" title="Permanent link">&para;</a></h3>
+<p>Identify the error in the following conditional structure:</p>
+<div class="highlight"><pre><span></span><code><span class="n">user_status</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">user_status</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p><strong>Indentation Error.</strong> The statement inside the <code>if</code> block (<code>print("Welcome")</code>) must be indented (usually 4 spaces).</p>
+</details>
+</details>
+<details class="tip">
+<summary>4. Google Colab: Try It Yourself</summary>
+<p>Practice conditional statements, if...elif...else chains, and input conversion with this Colab notebook:</p>
+<p>👉 <a href="https://colab.research.google.com/drive/1QIbINLkf4zGFNGPqJ2j2iaRtuL1Zmg6d?usp=sharing" rel="noopener" target="_blank">Open the Conditions Colab notebook ↗</a></p>
+<p><span style="color:#1a73e8;"><strong>First time using Google Colab?</strong></span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a></p>
+</details>
+<details class="question">
+<summary>5. Mini-Quiz</summary>
+<h3 id="q1-what-happens-when-a-condition-in-an-ifelifelse-chain-evaluates-to-true">Q1. What happens when a condition in an if...elif...else chain evaluates to True?<a class="headerlink" href="#q1-what-happens-when-a-condition-in-an-ifelifelse-chain-evaluates-to-true" title="Permanent link">&para;</a></h3>
+<p>A) The program stops immediately<br />
+B) All remaining conditions are evaluated<br />
+C) The rest of the chain is skipped<br />
+D) Only the else part runs  </p>
+<details class="info">
+<summary>Show correct answer</summary>
+<p><strong>C) The rest of the chain is skipped</strong></p>
+</details>
+<h3 id="q2-which-operator-would-you-use-to-check-if-a-number-of-absences-is-greater-than-or-equal-to-6">Q2. Which operator would you use to check if a number of absences is greater than or equal to 6?<a class="headerlink" href="#q2-which-operator-would-you-use-to-check-if-a-number-of-absences-is-greater-than-or-equal-to-6" title="Permanent link">&para;</a></h3>
+<p>A) =<br />
+B) ==<br />
+C) !=<br />
+D) &gt;=  </p>
+<details class="info">
+<summary>Show correct answer</summary>
+<p><strong>D) &gt;=</strong></p>
+</details>
+<h3 id="q3-what-is-the-primary-role-of-the-else-block-in-a-conditional-structure">Q3. What is the primary role of the else block in a conditional structure?<a class="headerlink" href="#q3-what-is-the-primary-role-of-the-else-block-in-a-conditional-structure" title="Permanent link">&para;</a></h3>
+<p>A) Executes when the if or elif condition is True<br />
+B) Executes when the preceding if and elif conditions are False<br />
+C) Handles syntax errors<br />
+D) Always executes regardless of conditions  </p>
+<details class="info">
+<summary>Show correct answer</summary>
+<p><strong>B) Executes when the preceding if and elif conditions are False</strong></p>
+</details>
+<h3 id="q4-what-does-the-keyword-elif-stand-for-in-python-conditional-logic">Q4. What does the keyword elif stand for in Python conditional logic?<a class="headerlink" href="#q4-what-does-the-keyword-elif-stand-for-in-python-conditional-logic" title="Permanent link">&para;</a></h3>
+<p>A) else function<br />
+B) else if<br />
+C) else loop<br />
+D) if else  </p>
+<details class="info">
+<summary>Show correct answer</summary>
+<p><strong>B) else if</strong></p>
+</details>
+<h3 id="q5-in-python-when-an-if-statement-is-used-inside-another-if-statement-what-is-this-structure-called">Q5. In Python, when an if statement is used inside another if statement, what is this structure called?<a class="headerlink" href="#q5-in-python-when-an-if-statement-is-used-inside-another-if-statement-what-is-this-structure-called" title="Permanent link">&para;</a></h3>
+<p>A) Compound conditional<br />
+B) if...elif...else<br />
+C) Nested if<br />
+D) Loop  </p>
+<details class="info">
+<summary>Show correct answer</summary>
+<p><strong>C) Nested if</strong></p>
+</details>
+</details>
+<details class="warning">
+<summary>6. Common Mistakes</summary>
+<ul>
+<li>Using <code>=</code> instead of <code>==</code> for comparisons  </li>
+<li>Forgetting the colon <code>:</code> after if, elif, or else statements  </li>
+<li>Incorrect indentation of conditional blocks  </li>
+<li>Not converting input to int/float before comparing  </li>
+<li>Using multiple independent if statements instead of an if...elif...else chain when conditions are mutually exclusive</li>
+</ul>
+</details>
+<details class="note">
+<summary>7. Summary Diagram</summary>
+<pre class="mermaid"><code>mindmap
+  root((Conditional Structures))
+    Basic Conditional
+      If Statement
+    Multiple Conditions
+      Elif Statement
+    Default Option
+      Else Statement
+    Key Rules
+      First True Condition Executes
+      Only One Block Runs
+      Proper Indentation</code></pre>
+</details>
+<details class="tip">
+<summary>8. Optional Extensions</summary>
+<ul>
+<li>Write a program that asks the user for a number and prints whether it is positive, negative, or zero using if...elif...else  </li>
+<li>Modify the scholarship example to include an additional category for students with average 75–84 and print <code>"Merit Scholarship"</code>  </li>
+<li>Research nested if statements and create a program that determines grade and scholarship eligibility simultaneously</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
