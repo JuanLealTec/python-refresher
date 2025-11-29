@@ -57,8 +57,7 @@ Then run the cells again from the top.
 
 ## 6. Safety note about permissions
 
-Sometimes you may see a Google message:  
-**“This notebook was not authored by Google.”**
+Sometimes you may see a Google message: **“This notebook was not authored by Google.”**
 
 This is a generic Colab warning for notebooks created by users — it does **not** mean the notebook is unsafe.
 

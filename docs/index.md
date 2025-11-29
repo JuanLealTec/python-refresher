@@ -5,22 +5,25 @@ hide:
 ---
 
 <div style="display: flex; align-items: center; justify-content: flex-start;">
-    <img src="assets/img/python-svgrepo-com.svg" alt="Official Python Logo" width="50" style="height: 50px; padding-right: 15px;"/>
-    <h1 style="margin: 0;">Python Refresher</h1>
+    <img src="assets/img/python-svgrepo-com.svg" 
+         alt="Official Python Logo" 
+         width="50" 
+         style="height: 50px; padding-right: 15px; vertical-align: middle;"/>
+    <h1 style="margin: 0; vertical-align: middle;">Python Refresher</h1>
 </div>
 
 ## Executive Summary
 
-This self-paced resource is designed to ensure that students entering **Computational Thinking II** possess a solid, reinforced foundation in the core concepts of **Computational Thinking I**. It provides the essential algorithmic thinking and fundamental Python skills required for success in the advanced level.
+This resource helps students entering **Computational Thinking II** strengthen the key concepts learned in **Computational Thinking I**.
 
 !!! note "Site Purpose and Objective"
-    This resource is designed for **self-paced study**. It delivers concise explanations, examples, and practice exercises. We include **Interactive Google Colab Notebooks** to facilitate hands-on practice; for guidance on their efficient use, please consult the **"Google Colab – Beginner Guide"** located under the **Guides** section in the navigation bar. The ultimate goal is to reinforce your foundational knowledge before advancing to Computational Thinking II.
+    This resource is designed for **self-paced study**. It delivers concise explanations, examples, and practice exercises. You will find short explanations, examples, practice activities, and **interactive Google Colab notebooks** to reinforce your skills. For guidance on their efficient use, please consult the **"Google Colab – Beginner Guide"** located under the **Guides** section in the navigation bar. The ultimate goal is to reinforce your foundational knowledge before advancing to Computational Thinking II.
 
 ## Roadmap of Topics
 
 For an effective review, we suggest following the logical order of the modules. This site covers:
 
-1.  **[Computational Thinking](01_principles.md):** The basic principles of problem-solving.
+1.  **[Computational Thinking](01_principles.md):** Core ideas of computational problem-solving.
 2.  **[IPO Cycle](02_ipo.md):** The fundamental structure of any program.
 3.  **[Algorithms](03_algorithms.md):** The design of precise, step-by-step instructions.
 4.  **[Variables and Constants](04_variables.md):** How to store and manipulate data.
@@ -45,7 +48,7 @@ For an effective review, we suggest following the logical order of the modules. 
 
 ## Academic Disclaimer
 
-**This resource is supplementary and support material.** Under no circumstances does it replace the content, activities, or assessments of the official course classes or instruction. Its use is optional and intended solely to strengthen individual knowledge.
+**This resource is supplementary and support material.** Under no circumstances does it replace the content, activities, or assessments of the official course classes or instruction. Its use is optional and intended solely to reinforce your understanding.
 
 ## License and Copyright
 

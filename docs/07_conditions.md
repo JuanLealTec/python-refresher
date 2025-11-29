@@ -14,11 +14,13 @@ Conditional statements are fundamental in programming because they allow a progr
     - The **`elif`** (short for *else if*) checks additional conditions **only if all preceding if/elif conditions were False**.  
     - The **`else`** block runs only if none of the previous conditions were True.  
 
-    **Important points:** - Only the **first True condition executes**, and the rest of the chain is skipped.  
+    **Important points:**
+    - Only the **first True condition executes**, and the rest of the chain is skipped.  
     - Use **relational operators** (`==`, `!=`, `<`, `>`, `<=`, `>=`) to compare values.  
     - **Indentation** is mandatory to define which statements belong to each conditional block.
 
     ## 1.1 Relational Operators
+    Relational operators allow Python to compare values and evaluate conditions. The most common ones are:
     | Operator | Description | Example |
     | :--- | :--- | :--- |
     | `==` | Equals | `x == 10` → True if x is 10 |
@@ -28,8 +30,25 @@ Conditional statements are fundamental in programming because they allow a progr
     | `>=` | Greater than or equal | `x >= 18` → True if x is 18 or older |
     | `<=` | Less than or equal | `x <= 100` → True if x is 100 or less |
 
-??? example "2. Commented Examples"
-    ### 2.1 Basic `if...else` Structure
+??? quote "2. Python Shorts (Video)"
+    A quick Python Shorts video showing how to use if…elif…else.
+
+    <div style="position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 9 / 16;">
+        <iframe 
+            src="https://www.youtube.com/embed/7FILd3kvs70"
+            title="Python Shorts: if…elif…else"
+            style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+??? example "3. Commented Examples"
+    ### 3.1 Basic `if...else` Structure
+    **Note:** These examples assume the user enters numeric input.  
+    If a non-numeric value is entered, Python will raise an error.
+
     ```python
     # Ask for age and convert to integer
     age = int(input("How old are you? "))
@@ -42,7 +61,7 @@ Conditional statements are fundamental in programming because they allow a progr
         print("Sorry, you cannot enter the party.")
     ```
 
-    ### 2.2 Using `elif` for Multiple Conditions
+    ### 3.2 Using `elif` for Multiple Conditions
     ```python
     # Ask for student's average grade
     average = int(input("Enter your average grade: "))
@@ -58,8 +77,8 @@ Conditional statements are fundamental in programming because they allow a progr
         print("No Scholarship")
     ```
 
-??? question "3. Short Practice Exercises"
-    ### 3.1: Operator Selection
+??? question "4. Short Practice Exercises"
+    ### 4.1: Operator Selection
     Which relational operator checks if the variable `inventory` is **strictly less than** 100?
 
     A) `<= 100`  
@@ -69,7 +88,7 @@ Conditional statements are fundamental in programming because they allow a progr
     ??? note "Show solution"
         **B) `< 100`**
 
-    ### 3.2: Prediction of Output
+    ### 4.2: Prediction of Output
     What is the final output of the following code block?
 
     ```python
@@ -86,7 +105,7 @@ Conditional statements are fundamental in programming because they allow a progr
         **Output:** `"A"`  
         *Explanation: The first condition (`x > 5`) is True, so the rest of the `elif`/`else` chain is skipped.*
 
-    ### 3.3: Error Correction
+    ### 4.3: Error Correction
     How should the code be corrected to check if `current_state` is equal to `"running"`?
 
     ```python
@@ -103,7 +122,7 @@ Conditional statements are fundamental in programming because they allow a progr
             print("System active")
         ```
 
-    ### 3.4: Indentation Error
+    ### 4.4: Indentation Error
     Identify the error in the following conditional structure:
 
     ```python
@@ -115,14 +134,14 @@ Conditional statements are fundamental in programming because they allow a progr
     ??? note "Show solution"
         **Indentation Error.** The statement inside the `if` block (`print("Welcome")`) must be indented (usually 4 spaces).
 
-??? tip "4. Google Colab: Try It Yourself"
+??? tip "5. Google Colab: Try It Yourself"
     Practice conditional statements, if...elif...else chains, and input conversion with this Colab notebook:
 
     👉 [Open the Conditions Colab notebook ↗](https://colab.research.google.com/drive/1QIbINLkf4zGFNGPqJ2j2iaRtuL1Zmg6d?usp=sharing){target="_blank" rel="noopener"}
 
     <span style="color:#1a73e8;">**First time using Google Colab?**</span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a>
 
-??? question "5. Mini-Quiz"
+??? question "6. Mini-Quiz"
     ### Q1. What happens when a condition in an if...elif...else chain evaluates to True?
     A) The program stops immediately  
     B) All remaining conditions are evaluated  
@@ -168,14 +187,13 @@ Conditional statements are fundamental in programming because they allow a progr
     ??? info "Show correct answer"
         **C) Nested if**
 
-??? warning "6. Common Mistakes"
+??? warning "7. Common Mistakes"
     - Using `=` instead of `==` for comparisons  
     - Forgetting the colon `:` after if, elif, or else statements  
     - Incorrect indentation of conditional blocks  
     - Not converting input to int/float before comparing  
-    - Using multiple independent if statements instead of an if...elif...else chain when conditions are mutually exclusive
 
-??? note "7. Summary Diagram"
+??? note "8. Summary Diagram"
     ```mermaid
     mindmap
       root((Conditional Structures))
@@ -191,7 +209,7 @@ Conditional statements are fundamental in programming because they allow a progr
           Proper Indentation
     ```
 
-??? tip "8. Optional Extensions"
+??? tip "9. Optional Extensions"
     - Write a program that asks the user for a number and prints whether it is positive, negative, or zero using if...elif...else  
     - Modify the scholarship example to include an additional category for students with average 75–84 and print `"Merit Scholarship"`  
     - Research nested if statements and create a program that determines grade and scholarship eligibility simultaneously
