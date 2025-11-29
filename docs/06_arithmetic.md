@@ -106,7 +106,7 @@ Arithmetic operations are the foundation of most computational tasks. They allow
 ??? tip "4. Google Colab: Try It Yourself"
     Practice arithmetic operations, operator precedence, and input conversion with this Colab notebook:
 
-    👉 [Open the Arithmetic Expressions Colab notebook ↗](https://colab.research.google.com/drive/1b3VTxbZKa-mT4hZgWVEas2T3D1YACByu?usp=sharing){target="_blank" rel="noopener"}
+    👉 [Open the Arithmetic Expressions Colab notebook ↗](https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/06_arithmetic.ipynb){target="_blank" rel="noopener"}
 
     <span style="color:#1a73e8;">**First time using Google Colab?**</span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a>
 

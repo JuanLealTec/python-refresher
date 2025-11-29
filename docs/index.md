@@ -17,7 +17,7 @@ hide:
 This resource helps students entering **Computational Thinking II** strengthen the key concepts learned in **Computational Thinking I**.
 
 !!! note "Site Purpose and Objective"
-    This resource is designed for **self-paced study**. It delivers concise explanations, examples, and practice exercises. You will find short explanations, examples, practice activities, and **interactive Google Colab notebooks** to reinforce your skills. For guidance on their efficient use, please consult the **"Google Colab – Beginner Guide"** located under the **Guides** section in the navigation bar. The ultimate goal is to reinforce your foundational knowledge before advancing to Computational Thinking II.
+    This resource is designed for **self-paced study**. It delivers concise explanations, examples, and practice exercises. You will find short explanations, examples, practice activities, **Python Shorts (brief video micro-lessons)**, and **interactive Google Colab notebooks** to reinforce your skills. For guidance on their efficient use, please consult the **"Google Colab – Beginner Guide"** located under the **Guides** section in the navigation bar. The ultimate goal is to reinforce your foundational knowledge before advancing to Computational Thinking II.
 
 ## Roadmap of Topics
 

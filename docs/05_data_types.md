@@ -129,7 +129,7 @@ Data Types are the classification Python and other programming languages use to 
 ??? tip "4. Google Colab: Try It Yourself"
     The best way to solidify your understanding of data types and casting is through hands-on practice. Use the following Colab notebook to practice:
 
-    👉 [Open the Data Types Colab notebook ↗](https://colab.research.google.com/drive/1XQpGEIHEgWnxlcP2bts_bf2u9uyu9PQh?usp=sharing){target="_blank" rel="noopener"}
+    👉 [Open the Data Types Colab notebook ↗](https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/05_data_types.ipynb){target="_blank" rel="noopener"}
 
     <span style="color:#1a73e8;">**First time using Google Colab?**</span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a>
 

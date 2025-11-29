@@ -137,7 +137,7 @@ Conditional statements are fundamental in programming because they allow a progr
 ??? tip "5. Google Colab: Try It Yourself"
     Practice conditional statements, if...elif...else chains, and input conversion with this Colab notebook:
 
-    👉 [Open the Conditions Colab notebook ↗](https://colab.research.google.com/drive/1QIbINLkf4zGFNGPqJ2j2iaRtuL1Zmg6d?usp=sharing){target="_blank" rel="noopener"}
+    👉 [Open the Conditions Colab notebook ↗](https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/07_conditions.ipynb){target="_blank" rel="noopener"}
 
     <span style="color:#1a73e8;">**First time using Google Colab?**</span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a>
 

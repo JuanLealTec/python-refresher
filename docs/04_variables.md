@@ -169,7 +169,7 @@ Variables and constants are fundamental concepts in programming. They allow a pr
 
     Use the following Colab notebook to practice:
 
-    👉 [Open the Variables & Constants Colab notebook ↗](https://colab.research.google.com/drive/1Q_Q8pmIsA5YXqa5YlLyeap3m-HgT4E6k?usp=sharing){target="_blank" rel="noopener"}
+    👉 [Open the Variables & Constants Colab notebook ↗](https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/04_variables.ipynb){target="_blank" rel="noopener"}
 
     <span style="color:#1a73e8;"><strong>First time using Google Colab?</strong></span> <a href="/colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a>
 
