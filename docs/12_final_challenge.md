@@ -42,12 +42,12 @@ Use your Python logic to keep things (relatively) under control.
 Click the image below to open the notebook in Google Colab.
 
 <p align="center">
-  <a href="https://https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/12_final_challange.ipynb" target="_blank" rel="noopener noreferrer">
+  <a href="https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/12_final_challange.ipynb" target="_blank" rel="noopener noreferrer">
     <img src="../assets/img/final_challange.png" alt="Haven-42 Final Challenge" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" />
   </a>
 </p>
 
-If the image button doesn’t work, use this link: [Open the Final Challenge notebook ↗](https://https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/12_final_challange.ipynb){target="_blank" rel="noopener noreferrer"}
+If the image button doesn’t work, use this link: [Open the Final Challenge notebook ↗](https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/12_final_challange.ipynb){target="_blank" rel="noopener noreferrer"}
 
 ## 📘 Learning Goal
 
