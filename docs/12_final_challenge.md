@@ -47,7 +47,7 @@ Click the image below to open the notebook in Google Colab.
   </a>
 </p>
 
-If the image button doesn’t work, use this link: [Open the Final Challenge notebook ↗](https://colab.research.google.com/drive/1rlAwggVmX6NmQfTOz6u-4fj3dgwcYKsh?usp=sharing){target="_blank" rel="noopener noreferrer"}
+If the image button doesn’t work, use this link: [Open the Final Challenge notebook ↗](https://https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/12_final_challange.ipynb){target="_blank" rel="noopener noreferrer"}
 
 ## 📘 Learning Goal
 
