@@ -1,0 +1,1212 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A concise and practical review of fundamental Python concepts, computational thinking, and best programming practices for advanced high-school and undergraduate students.">
+      
+      
+      
+        <link rel="canonical" href="https://juanlealtec.github.io/python-refresher/11_for_loop/">
+      
+      
+        <link rel="prev" href="../10_while_loop/">
+      
+      
+        <link rel="next" href="../12_final_challenge/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>11. For Loop - Python Refresher</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#11-for-loop" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python Refresher" class="md-header__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Refresher
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11. For Loop
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Refresher" class="md-nav__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Refresher
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Computational Thinking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ipo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Input-Process-Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Variables & Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_arithmetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Arithmetic Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Conditionals & Relational Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_nested_multiple_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Nested & Multiple Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_compound_conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Compund Conditions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_while_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. While Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. For Loop
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. For Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-basic-structure-and-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Basic Structure and Iteration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-range-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. The range() Function
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_final_challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Final Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colab_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Colab – Beginner Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best_practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-basic-structure-and-iteration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Basic Structure and Iteration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-range-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. The range() Function
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="11-for-loop">11. For Loop<a class="headerlink" href="#11-for-loop" title="Permanent link">&para;</a></h1>
+<p>A <strong>for loop</strong> is a primary control flow structure used to repeat a <strong>code block</strong> a defined number of times. It is the preferred loop when the sequence of items to process is known in advance.</p>
+<p>By operating over an <strong>iterable sequence</strong>, this structure automatically manages the count. This ensures the <strong>computational logic</strong> is more efficient and streamlined for clearly defined repetition tasks.</p>
+<details class="info">
+<summary>1. Loop Structure and Control Flow</summary>
+<h2 id="11-basic-structure-and-iteration">1.1. Basic Structure and Iteration<a class="headerlink" href="#11-basic-structure-and-iteration" title="Permanent link">&para;</a></h2>
+<p>A <strong>for loop</strong> repeats a block of code for a defined number of times or for each item in a sequence. It handles the iteration automatically, meaning you do not need to manually manage an index variable.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># General Structure</span>
+<span class="k">for</span> <span class="n">variable</span> <span class="ow">in</span> <span class="n">iterable_sequence</span><span class="p">:</span>
+    <span class="c1"># repeated instructions (code block)</span>
+</code></pre></div>
+<p>The loop's control flow is determined by the <code>iterable_sequence</code>. For every item in that sequence, the code block runs once. The loop variable (<code>variable</code> in the example) takes on the value of the current item in each turn.</p>
+<h2 id="12-the-range-function">1.2. The range() Function<a class="headerlink" href="#12-the-range-function" title="Permanent link">&para;</a></h2>
+<p>The built-in <code>range()</code> function is the primary way to execute a for loop a specific number of times. It generates a sequence of numbers that the loop iterates through.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Function Form</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>range(stop)</code></td>
+<td style="text-align: left;">Generates a sequence from 0 up to, but not including, <code>stop</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>range(start, stop)</code></td>
+<td style="text-align: left;">Generates a sequence from <code>start</code> up to, but not including, <code>stop</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>range(start, stop, step)</code></td>
+<td style="text-align: left;">Generates a sequence from <code>start</code> up to, but not including, <code>stop</code>, incrementing or decrementing by <code>step</code>.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<details class="quote">
+<summary>2. Python Shorts (Video)</summary>
+<p>A quick, visual explanation of the <code>for</code> loop.</p>
+<p><div style="position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 9 / 16;">
+    <iframe 
+        src="https://www.youtube.com/embed/qiwK7-6_QAg"
+        title="Python Shorts: for Loop"
+        style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div></p>
+<p>If the video doesn't load, open directly on YouTube: <a href="https://www.youtube.com/watch?v=qiwK7-6_QAg" rel="noopener noreferrer" target="_blank">Watch Python Shorts: for Loop ↗</a></p>
+</details>
+<details class="example">
+<summary>3. Commented Examples</summary>
+<h3 id="31-iterating-a-defined-range">3.1. Iterating a Defined Range<a class="headerlink" href="#31-iterating-a-defined-range" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Loop: Use for to display the numbers from 2 to 5</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="c1"># 2. Output: Print the current number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
+<span class="c1"># 4</span>
+<span class="c1"># 5</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>The <code>range(2, 6)</code> function generates a sequence starting at 2 and stopping strictly before 6.</li>
+<li>The for loop runs for a known, defined number of iterations (4 times).</li>
+<li>The loop variable (<code>n</code>) automatically takes the values: 2, 3, 4, and 5.</li>
+</ul>
+<h3 id="32-using-the-step-parameter-for-countdown">3.2. Using the Step Parameter for Countdown<a class="headerlink" href="#32-using-the-step-parameter-for-countdown" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Loop: Use for a countdown, counting backwards by 5</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c1"># 2. Output: Print the current number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># 20</span>
+<span class="c1"># 15</span>
+<span class="c1"># 10</span>
+<span class="c1"># 5</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>The loop uses a negative step (<code>-5</code>) to count backward from the <code>start</code> value (20).</li>
+<li>The loop continues until the value reaches the <code>stop</code> boundary (1).</li>
+<li>This structure is used for sequences where the number is decreasing in a fixed interval.</li>
+</ul>
+<h3 id="33-iterating-over-a-string">3.3. Iterating Over a String<a class="headerlink" href="#33-iterating-over-a-string" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Setup: Initialize the variable word</span>
+<span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+<span class="c1"># 2. Loop: Iterate over each characters in word</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+    <span class="c1">#3. Output: Print the current character</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># P</span>
+<span class="c1"># y</span>
+<span class="c1"># t</span>
+<span class="c1"># h</span>
+<span class="c1"># o</span>
+<span class="c1"># n</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>For loops are used to directly iterate through any iterable sequence (like a string).</li>
+<li>In each turn, the loop variable (<code>char</code>) automatically holds the value of the current item (letter).</li>
+<li>The loop executes once for every item in the sequence.</li>
+</ul>
+</details>
+<details class="question">
+<summary>4. Short Practice Exercises</summary>
+<h3 id="41-predict-the-output-iterating-a-string">4.1. Predict the Output (Iterating a String)<a class="headerlink" href="#41-predict-the-output-iterating-a-string" title="Permanent link">&para;</a></h3>
+<p>What will be printed by the following code?</p>
+<div class="highlight"><pre><span></span><code><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;LOOP&quot;</span>
+<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<div class="highlight"><pre><span></span><code>L
+O
+O
+P
+</code></pre></div>
+<p><em>Explanation</em>: The for loop iterates through the string, printing each character on a new line.</p>
+</details>
+<h3 id="42-predict-the-output-counting-with-step">4.2. Predict the Output (Counting with Step)<a class="headerlink" href="#42-predict-the-output-counting-with-step" title="Permanent link">&para;</a></h3>
+<p>What numbers will be printed by the following loop?</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Prints multiples of 3</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<div class="highlight"><pre><span></span><code>3
+6
+9
+12
+15  
+</code></pre></div>
+<p><em>Explanation</em>: The sequence starts at 3, increases by a step of 3, and stops before the number 16 (exclusive), resulting in multiples up to 15.</p>
+</details>
+<h3 id="43-predict-final-value">4.3. Predict Final Value<a class="headerlink" href="#43-predict-final-value" title="Permanent link">&para;</a></h3>
+<p>What is the final value of the <code>total</code> variable after the following code snippet executes?</p>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">i</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p>28</p>
+<p><em>Explanation</em>: The loop calculates the sum of numbers from 1 up to and including 7 (<code>range(1, 8)</code>), which is 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28.</p>
+</details>
+<h3 id="44-correct-the-code-reverse-count">4.4. Correct the Code (Reverse Count)<a class="headerlink" href="#44-correct-the-code-reverse-count" title="Permanent link">&para;</a></h3>
+<p>The following code is intended to count down by ones from 8 to 3 (inclusive). Correct the <code>range()</code> function so that it prints 8, 7, 6, 5, 4, 3.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Incorrect countdown:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<div class="highlight"><pre><span></span><code><span class="c1"># Correct countdown:</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+<p><em>Explanation</em>: For a countdown, the step must be negative (<code>-1</code>), and the stop value must be 1 less than the last desired number (stopping at 2 is necessary to include 3).</p>
+</details>
+</details>
+<details class="tip">
+<summary>5. Google Colab: Try It Yourself</summary>
+<p>Practice <code>for</code> loops with this interactive Colab notebook:</p>
+<p>👉 <a href="https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/11_for_loop.ipynb" rel="noopener" target="_blank">Open the For Loope Colab notebook ↗</a></p>
+<p><span style="color:#1a73e8;"><strong>First time using Google Colab?</strong></span> <a href="../colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a></p>
+</details>
+<details class="question">
+<summary>6. Mini Quiz</summary>
+<h3 id="61-what-is-the-main-characteristic-that-distinguishes-a-for-loop-from-a-while-loop">6.1. What is the main characteristic that distinguishes a for loop from a while loop?<a class="headerlink" href="#61-what-is-the-main-characteristic-that-distinguishes-a-for-loop-from-a-while-loop" title="Permanent link">&para;</a></h3>
+<p>A) The for loop runs as long as a condition is true.<br>
+B) The for loop repeats a known, defined number of times.<br>
+C) The for loop is only used for comparisons.<br>
+D) The for loop cannot contain if statements.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>B) The for loop repeats a known, defined number of times.</p>
+</details>
+<h3 id="62-if-you-use-range1-10-2-what-does-the-number-10-represent">6.2. If you use <code>range(1, 10, 2)</code>, what does the number '10' represent?<a class="headerlink" href="#62-if-you-use-range1-10-2-what-does-the-number-10-represent" title="Permanent link">&para;</a></h3>
+<p>A) The starting number of the sequence.<br>
+B) The step size between numbers.<br>
+C) The number that the sequence will stop immediately before (exclusive).<br>
+D) The number of times the loop will run.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) The number that the sequence will stop immediately before (exclusive).</p>
+</details>
+<h3 id="63-what-is-the-output-of-the-python-code-for-n-in-range4-printn">6.3. What is the output of the Python code <code>for n in range(4): print(n)</code>?<a class="headerlink" href="#63-what-is-the-output-of-the-python-code-for-n-in-range4-printn" title="Permanent link">&para;</a></h3>
+<p>A) 1 2 3 4<br>
+B) 0 1 2 3<br>
+C) 0 1 2 3 4<br>
+D) 4</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>B) 0 1 2 3</p>
+</details>
+<h3 id="64-how-do-you-create-a-sequence-that-counts-backward-eg-from-10-down-to-1-using-the-range-function">6.4. How do you create a sequence that counts backward (e.g., from 10 down to 1) using the <code>range()</code> function?<a class="headerlink" href="#64-how-do-you-create-a-sequence-that-counts-backward-eg-from-10-down-to-1-using-the-range-function" title="Permanent link">&para;</a></h3>
+<p>A) By making the start parameter negative.<br>
+B) By omitting the stop parameter.<br>
+C) By using a negative value for the step parameter.<br>
+D) By using the while loop instead.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) By using a negative value for the step parameter.</p>
+</details>
+<h3 id="65-in-the-structure-for-variable-in-iterable-what-defines-the-instructions-that-will-be-repeated-in-each-iteration">6.5. In the structure <code>for variable in iterable:</code>, what defines the instructions that will be repeated in each iteration?<a class="headerlink" href="#65-in-the-structure-for-variable-in-iterable-what-defines-the-instructions-that-will-be-repeated-in-each-iteration" title="Permanent link">&para;</a></h3>
+<p>A) The use of the <code>range()</code> function.<br>
+B) The statements placed outside the loop structure.<br>
+C) The statements that are correctly indented below the <code>for</code> statement.<br>
+D) The variable name used in the loop.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) The statements that are correctly indented below the <code>for</code> statement.</p>
+</details>
+</details>
+<details class="warning">
+<summary>7. Common Mistakes</summary>
+<ul>
+<li>Confusing for loop with while loop when iterations are unknown.</li>
+<li>Assuming the stop value in <code>range()</code> is inclusive (it is always exclusive).</li>
+<li>Forgetting the Colon (<code>:</code>) at the end of the <code>for</code> statement line.</li>
+<li>Trying to manually modify the for loop variable (<code>n = n + 1</code>), which is automatic.</li>
+</ul>
+</details>
+<details class="note">
+<summary>8. Summary Diagram</summary>
+<pre class="mermaid"><code>mindmap
+  root((For Loop))
+    Concept
+      Repeats a known number of times
+      Iterates over a sequence
+    range Function
+      Defines start, stop, and step
+      Used for counting
+    Iteration
+      Automatically manages the loop variable
+      Used on strings, lists, or sequences
+    Key Points
+      Don't manually change the loop variable
+      Stop value is exclusive</code></pre>
+</details>
+<details class="tip">
+<summary>9. Optional Extensions</summary>
+<ul>
+<li>Research and demonstrate how to use a for loop inside another for loop to print a multiplication table (e.g., 1x1 to 10x10).</li>
+<li>Explore the <code>break</code> and <code>continue</code> keywords and write a program using them to exit or skip iterations within a <code>for</code> loop.</li>
+<li>Write a Python program that initializes a variable to calculate the factorial of a number (e.g., 5! = 5 * 4 * 3 * 2 * 1) using a for loop.</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

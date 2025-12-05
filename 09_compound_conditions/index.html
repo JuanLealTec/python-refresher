@@ -1,0 +1,1217 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A concise and practical review of fundamental Python concepts, computational thinking, and best programming practices for advanced high-school and undergraduate students.">
+      
+      
+      
+        <link rel="canonical" href="https://juanlealtec.github.io/python-refresher/09_compound_conditions/">
+      
+      
+        <link rel="prev" href="../08_nested_multiple_conditionals/">
+      
+      
+        <link rel="next" href="../10_while_loop/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>9. Compund Conditions - Python Refresher</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-compound-conditions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python Refresher" class="md-header__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Refresher
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. Compund Conditions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Refresher" class="md-nav__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Refresher
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Computational Thinking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ipo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Input-Process-Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Variables & Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_arithmetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Arithmetic Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Conditionals & Relational Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_nested_multiple_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Nested & Multiple Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Compund Conditions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Compund Conditions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-the-and-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 The and Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-or-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 The or Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-the-not-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 The not Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_while_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. While Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_for_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. For Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_final_challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Final Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colab_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Colab – Beginner Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best_practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-the-and-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 The and Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-or-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 The or Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-the-not-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 The not Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="9-compound-conditions">9. Compound Conditions<a class="headerlink" href="#9-compound-conditions" title="Permanent link">&para;</a></h1>
+<p><strong>Compound conditions</strong> allow programs to evaluate multiple criteria at the same time. By combining conditions with Logical Operators, you can write clearer and more powerful decision-making logic.</p>
+<p>These structures are essential for handling complex, real-world scenarios. They enable your program's computational logic to manage decisions that depend on several requirements simultaneously, providing flexibility and precision.</p>
+<details class="info">
+<summary>1. Compound Logic and Boolean Evaluation</summary>
+<h2 id="11-the-and-operator">1.1 The <code>and</code> Operator<a class="headerlink" href="#11-the-and-operator" title="Permanent link">&para;</a></h2>
+<p>Use <code>and</code> when all conditions must be True for the whole expression to be True.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Condition 1] --&gt; B{and}
+    C[Condition 2] --&gt; B
+    B --&gt; D[True only if both are True]</code></pre>
+<p>Example:
+<div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">has_ticket</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span> <span class="ow">and</span> <span class="n">has_ticket</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Access granted&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="12-the-or-operator">1.2 The <code>or</code> Operator<a class="headerlink" href="#12-the-or-operator" title="Permanent link">&para;</a></h2>
+<p>Use <code>or</code> when at least one of the conditions must be True for the whole expression to be True.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[Condition 1] --&gt; B{or}
+    C[Condition 2] --&gt; B
+    B --&gt; D[True if any is True]</code></pre>
+<p>Example:
+<div class="highlight"><pre><span></span><code><span class="n">country</span> <span class="o">=</span> <span class="s2">&quot;Canada&quot;</span>
+
+<span class="k">if</span> <span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;USA&quot;</span> <span class="ow">or</span> <span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;Canada&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eligible region&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="13-the-not-operator">1.3 The <code>not</code> Operator<a class="headerlink" href="#13-the-not-operator" title="Permanent link">&para;</a></h2>
+<p>Use <code>not</code> to invert a condition.  </p>
+<ul>
+<li><code>not True</code> becomes <code>False</code>  </li>
+<li><code>not False</code> becomes <code>True</code></li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A[Condition] --&gt; B{not}
+    B --&gt; C[Inverted Result]</code></pre>
+<p>Example:
+<div class="highlight"><pre><span></span><code><span class="n">has_id</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">has_id</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID required&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</details>
+<details class="quote">
+<summary>2. Python Shorts (Video)</summary>
+<p>A Python Shorts video demonstrating how to combine conditions using and, or.</p>
+<p><div style="position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 9 / 16;">
+    <iframe 
+        src="https://www.youtube.com/embed/V92IBY3rjVQ"
+        title="Python Shorts: Compound Conditions (and, or)"
+        style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div></p>
+<p>If the video doesn't load, open directly on YouTube: <a href="https://www.youtube.com/watch?v=V92IBY3rjVQ" rel="noopener noreferrer" target="_blank">Watch Python Shorts: Compound Conditions (and, or) ↗</a></p>
+</details>
+<details class="example">
+<summary>3. Commented Examples</summary>
+<h3 id="31-using-and-for-simultaneous-requirements">3.1. Using <code>and</code> for Simultaneous Requirements<a class="headerlink" href="#31-using-and-for-simultaneous-requirements" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Setup: Define an integer variable (int)</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">25</span>
+
+<span class="c1"># 2. Decision: Check if number is between 20 and 30 (both conditions must be True)</span>
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">20</span> <span class="ow">and</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="c1"># 3. Output: Executes only if both conditions are True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number between 20 and 30&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>Compound conditions combine multiple comparisons using <code>and</code> or <code>or</code>.</li>
+<li>The <code>and</code> operator executes the block only if both conditions are True.</li>
+<li>Python evaluates from left to right and stops if one condition is False.</li>
+<li>This allows multiple requirements to be checked in a single <code>if</code> statement.</li>
+</ul>
+<h3 id="32-using-or-for-alternative-requirements">3.2. Using <code>or</code> for Alternative Requirements<a class="headerlink" href="#32-using-or-for-alternative-requirements" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Setup: Define an integer variable (int)</span>
+<span class="n">stock</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="c1"># 2. Setup: Define an boolean variable (bool)</span>
+<span class="n">has_priority_order</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># 3 Decision: Check if stock is empty or there is a priority order</span>
+<span class="k">if</span> <span class="n">stock</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">has_priority_order</span><span class="p">:</span>
+    <span class="c1"># 4. Output: Executes if at least one condition is True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Order can be processed&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>The <code>or</code> operator executes the block if at least one condition is True.</li>
+<li>Python evaluates conditions from left to right and stops if one is True (short-circuit).</li>
+<li>This allows alternatives to satisfy a single requirement.</li>
+</ul>
+<h3 id="33-using-not-for-logical-inversion">3.3. Using <code>not</code> for Logical Inversion<a class="headerlink" href="#33-using-not-for-logical-inversion" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Setup: Define a boolean variable (bool)</span>
+<span class="n">is_online</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># 2. Decision: Check if user is not online</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">is_online</span><span class="p">:</span>
+    <span class="c1"># 3. Output: Executes when the condition is True</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User is offline&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>The <code>not</code> operator reverses a Boolean value.</li>
+<li><code>not False</code> becomes True, and <code>not True</code> becomes False.</li>
+<li>This allows checking the opposite of a condition in a single statement.</li>
+</ul>
+</details>
+<details class="question">
+<summary>4. Short Practice Exercises</summary>
+<h3 id="41-multiple-requirements-and">4.1. Multiple Requirements (<code>and</code>)<a class="headerlink" href="#41-multiple-requirements-and" title="Permanent link">&para;</a></h3>
+<p>What will the following code print if <code>average = 92</code> and <code>absences = 0</code>?</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">average</span> <span class="o">&gt;</span> <span class="mi">90</span> <span class="ow">and</span> <span class="n">absences</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eligible&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p><code>"Eligible"</code></p>
+<p><em>Explanation</em>: <code>and</code> requires both conditions to be True. Since <code>92 &gt; 90</code> is True and <code>0 == 0</code> is True, the combined expression is True.</p>
+</details>
+<h3 id="42-alternative-requirements-or">4.2. Alternative Requirements (<code>or</code>)<a class="headerlink" href="#42-alternative-requirements-or" title="Permanent link">&para;</a></h3>
+<p>Consider the code below. If <code>senior_citizen = False</code> and <code>purchase_total = 1200</code>, will the message <code>"Discount Applied"</code> be printed?</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="n">senior_citizen</span> <span class="ow">or</span> <span class="n">purchase_total</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Discount Applied&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p>Yes</p>
+<p><em>Explanation</em>: <code>or</code> is True if at least one condition is met; since <code>1200 &gt; 1000</code> is True, the entire expression passes.</p>
+</details>
+<h3 id="43-range-validation-and">4.3. Range Validation (<code>and</code>)<a class="headerlink" href="#43-range-validation-and" title="Permanent link">&para;</a></h3>
+<p>Does the following condition correctly evaluate whether <code>month</code> is between 1 and 12?</p>
+<div class="highlight"><pre><span></span><code><span class="n">month</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">12</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p>Yes</p>
+<p><em>Explanation</em>: <code>and</code> requires both conditions (<code>month &gt;= 1</code> and <code>month &lt;= 12</code>) to be True to validate the month is within the inclusive range.</p>
+</details>
+<h3 id="44-logical-evaluation">4.4. Logical Evaluation<a class="headerlink" href="#44-logical-evaluation" title="Permanent link">&para;</a></h3>
+<p>Determine the result of:<br />
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="mi">100</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="mi">7</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
+</code></pre></div></p>
+<details class="note">
+<summary>Show solution</summary>
+<p>True</p>
+<p><em>Explanation</em>: <code>or</code> is True if at least one condition is True; since <code>7 == 7</code>, the whole expression is True.</p>
+</details>
+</details>
+<details class="tip">
+<summary>5. Google Colab: Try It Yourself</summary>
+<p>Practice compound conditions with this interactive Colab notebook:</p>
+<p>👉 <a href="https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/09_compound_conditions.ipynb" rel="noopener" target="_blank">Open the Compound Conditions Colab notebook ↗</a></p>
+<p><span style="color:#1a73e8;"><strong>First time using Google Colab?</strong></span> <a href="../colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a></p>
+</details>
+<details class="question">
+<summary>6. Mini-Quiz</summary>
+<h3 id="61-what-is-a-compound-condition">6.1. What is a compound condition?<a class="headerlink" href="#61-what-is-a-compound-condition" title="Permanent link">&para;</a></h3>
+<p>A) A statement that tests one condition only.<br>
+B) A condition that includes a loop.<br>
+C) A statement combining two or more conditions.<br>
+D) A condition that always returns True.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) A statement combining two or more conditions.</p>
+</details>
+<h3 id="62-which-logical-operator-returns-true-only-if-both-conditions-are-true">6.2. Which logical operator returns True only if both conditions are True?<a class="headerlink" href="#62-which-logical-operator-returns-true-only-if-both-conditions-are-true" title="Permanent link">&para;</a></h3>
+<p>A) <code>or</code><br>
+B) <code>not</code><br>
+C) <code>and</code><br>
+D) <code>if</code></p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) <code>and</code></p>
+</details>
+<h3 id="63-what-is-the-result-of-the-expression-5-3-and-2-1">6.3. What is the result of the expression <code>(5 &gt; 3) and (2 &lt; 1)</code>?<a class="headerlink" href="#63-what-is-the-result-of-the-expression-5-3-and-2-1" title="Permanent link">&para;</a></h3>
+<p>A) True<br>
+B) False<br>
+C) None<br>
+D) Error</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>B) False</p>
+</details>
+<h3 id="64-which-condition-checks-if-num-is-between-10-and-50-inclusive">6.4. Which condition checks if <code>num</code> is between 10 and 50 (inclusive)?<a class="headerlink" href="#64-which-condition-checks-if-num-is-between-10-and-50-inclusive" title="Permanent link">&para;</a></h3>
+<p>A) <code>num &gt; 10 or num &lt; 50</code><br>
+B) <code>num &gt;= 10 and num &lt;= 50</code><br>
+C) <code>num &lt;= 10 or num &gt;= 50</code><br>
+D) <code>num == 10 and num == 50</code></p>
+<details class="info">
+<summary>Show answer</summary>
+<p>B) <code>num &gt;= 10 and num &lt;= 50</code></p>
+</details>
+<h3 id="65-which-operator-returns-true-if-at-least-one-condition-is-true">6.5. Which operator returns True if at least one condition is True?<a class="headerlink" href="#65-which-operator-returns-true-if-at-least-one-condition-is-true" title="Permanent link">&para;</a></h3>
+<p>A) <code>and</code><br>
+B) <code>or</code><br>
+C) <code>not</code><br>
+D) <code>elif</code></p>
+<details class="info">
+<summary>Show answer</summary>
+<p>B) <code>or</code></p>
+</details>
+</details>
+<details class="warning">
+<summary>7. Common Mistakes</summary>
+<ul>
+<li>Mixing up <code>and</code> and <code>or</code> when checking ranges.</li>
+<li>Using <code>or</code> when checking a value inside a range.</li>
+<li>Misusing <code>not</code> and unintentionally reversing logic.</li>
+<li>Forgetting relational operators inside compound conditions.</li>
+</ul>
+</details>
+<details class="note">
+<summary>8. Summary Diagram</summary>
+<pre class="mermaid"><code>mindmap
+  root((Compound Conditions))
+    Logical Operators
+      and - all conditions True
+      or - at least one True
+      not - logical inversion
+    Common Uses
+      Range checks
+      Multiple requirements
+      Alternative conditions
+    Key Points
+      Boolean evaluation
+      Clear logical structure</code></pre>
+</details>
+<details class="tip">
+<summary>9. Optional Extensions</summary>
+<ul>
+<li>Write a program that asks for age and membership status and determines discount eligibility using <code>and</code> and <code>or</code>.</li>
+<li>Extend Example 3.1 so that it also prints <code>"Out of range"</code> when the number is below 20 or above 30.</li>
+<li>Research how Python evaluates compound conditions using short-circuit evaluation and test it with print statements.</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

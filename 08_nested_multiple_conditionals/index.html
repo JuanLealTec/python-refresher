@@ -1,0 +1,1150 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A concise and practical review of fundamental Python concepts, computational thinking, and best programming practices for advanced high-school and undergraduate students.">
+      
+      
+      
+        <link rel="canonical" href="https://juanlealtec.github.io/python-refresher/08_nested_multiple_conditionals/">
+      
+      
+        <link rel="prev" href="../07_conditionals/">
+      
+      
+        <link rel="next" href="../09_compound_conditions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>8. Nested & Multiple Conditionals - Python Refresher</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-nested-multiple-conditionals" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Python Refresher" class="md-header__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python Refresher
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. Nested & Multiple Conditionals
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Python Refresher" class="md-nav__button md-logo" aria-label="Python Refresher" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Python Refresher
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/JuanLealTec/python-refresher" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Computational Thinking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_ipo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Input-Process-Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_algorithms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Algorithms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Variables & Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_arithmetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Arithmetic Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_conditionals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Conditionals & Relational Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Nested & Multiple Conditionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_compound_conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Compund Conditions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_while_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. While Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_for_loop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. For Loop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_final_challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Final Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_14" >
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../colab_instructions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Colab – Beginner Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../best_practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="8-nested-multiple-conditionals">8. Nested &amp; Multiple Conditionals<a class="headerlink" href="#8-nested-multiple-conditionals" title="Permanent link">&para;</a></h1>
+<p><strong>Nested and multiple conditional statements</strong> are the core structures for implementing multi-layered logic in a program. They allow the program to manage decisions that depend on several layers of criteria or on a sequence of mutually exclusive choices.</p>
+<p>These structures are essential for handling complex and dynamic application development. They enable the computational logic to manage both exclusive sequences and hierarchical dependencies, matching the complexity of real-world scenarios.</p>
+<details class="info">
+<summary>1. Exclusive vs. Hierarchical Logic</summary>
+<h3 id="11-multiple-conditionals">1.1. Multiple Conditionals<a class="headerlink" href="#11-multiple-conditionals" title="Permanent link">&para;</a></h3>
+<p>This structure, using the <code>if/elif/else</code> chain, is used to handle multiple mutually exclusive cases (only one can be true). Conditions are evaluated in sequence from top to bottom.
+The first condition that evaluates to <code>True</code> executes its corresponding block, and the rest of the entire chain is immediately skipped.</p>
+<p>Exclusive Sequence Example:</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
+
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="c1"># Checked first</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade A&quot;</span><span class="p">)</span> 
+<span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
+    <span class="c1"># Only checked if &#39;score &gt; 90&#39; was False (and it is).</span>
+    <span class="c1"># This block executes and the program skips the final &#39;else&#39;.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade B&quot;</span><span class="p">)</span> 
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Checked last (only if all &#39;if/elif&#39; conditions were False).</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade C&quot;</span><span class="p">)</span> 
+</code></pre></div>
+Key Takeaway: Using <code>elif</code> prevents subsequent conditions from being checked once a match is found, ensuring only one path runs.</p>
+<h3 id="12-nested-conditionals">1.2. Nested Conditionals<a class="headerlink" href="#12-nested-conditionals" title="Permanent link">&para;</a></h3>
+<p>A <strong>nested <code>if</code></strong> statement places one <code>if</code> inside another (<code>if</code>, <code>elif</code>, or <code>else</code>) block. This creates a multi-level, hierarchical decision: the inner condition is only evaluated if the outer condition has already been confirmed as <code>True</code>.</p>
+<p>Hierarchical Dependence Example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">is_member</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">has_coupon</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">is_member</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="c1"># Step 1: Must be True to proceed to the next level (indentation)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Member access confirmed.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">has_coupon</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="c1"># Step 2: Only evaluated if Step 1 was True.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;20</span><span class="si">% e</span><span class="s2">xtra discount applied.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Executes if Step 1 was True, but the inner condition was False.</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No coupon, only member discount.&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Guest access. No discounts.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Key Takeaway: The <strong>indentation</strong> visually enforces the dependency: the code block inside the outer <code>if</code> controls access to the inner <code>if</code>.</p>
+</details>
+<details class="quote">
+<summary>2. Python Shorts (Video)</summary>
+<h3 id="21-python-shorts-ifelifelse">2.1. Python Shorts: if/elif/else<a class="headerlink" href="#21-python-shorts-ifelifelse" title="Permanent link">&para;</a></h3>
+<p>A quick Python Shorts video showing how to use if/elif/else.</p>
+<p><div style="position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 9 / 16;">
+    <iframe 
+        src="https://www.youtube.com/embed/0ZWt_kTnFXs"
+        title="Python Shorts: if/elif/else"
+        style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div></p>
+<p>If the video doesn't load, open directly on YouTube: <a href="https://www.youtube.com/watch?v=0ZWt_kTnFXs" rel="noopener noreferrer" target="_blank">Watch Python Shorts: if/elif/else ↗</a></p>
+<h3 id="22-python-shorts-nested-if">2.2. Python Shorts: Nested if<a class="headerlink" href="#22-python-shorts-nested-if" title="Permanent link">&para;</a></h3>
+<p>A short video demonstrating nested if statements in Python.</p>
+<p><div style="position: relative; width: 100%; max-width: 360px; margin: 0 auto; aspect-ratio: 9 / 16;">
+    <iframe 
+        src="https://www.youtube.com/embed/ArDFcXjclfE"
+        title="Python Shorts: Nested if"
+        style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div></p>
+<p>If the video doesn't load, open directly on YouTube: <a href="https://www.youtube.com/watch?v=ArDFcXjclfE" rel="noopener noreferrer" target="_blank">Watch Python Shorts: Nested if ↗</a></p>
+</details>
+<details class="example">
+<summary>3. Commented Examples</summary>
+<h3 id="31-multiple-conditions-ifelifelse">3.1. Multiple Conditions (<code>if/elif/else</code>)<a class="headerlink" href="#31-multiple-conditions-ifelifelse" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Input: Get the student&#39;s average and convert to integer</span>
+<span class="n">average</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your average: &quot;</span><span class="p">))</span>
+
+<span class="c1"># 2. Decision Sequence: Check the highest scholarship threshold first</span>
+<span class="k">if</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="p">:</span>
+    <span class="c1"># 3. Output: Excellence awarded</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Excellence Scholarship&quot;</span><span class="p">)</span> <span class="c1"># Example Output: Excellence Scholarship</span>
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">85</span><span class="p">:</span>
+    <span class="c1"># 4. Output: Check the next threshold only if the previous was False</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Academic Scholarship&quot;</span><span class="p">)</span> <span class="c1"># Example Output: Academic Scholarship</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># 5. Output: Executes if all preceding conditions were False</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Scholarship&quot;</span><span class="p">)</span> <span class="c1"># Example Output: No Scholarship</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li><code>if/elif/else</code> handles multiple, exclusive conditions.</li>
+<li>Conditions are evaluated strictly in sequence from top to bottom.</li>
+<li>Only the code block for the first True condition is executed; the rest are skipped.</li>
+</ul>
+<h3 id="32-nested-conditions-nested-if">3.2. Nested Conditions (<code>Nested if</code>)<a class="headerlink" href="#32-nested-conditions-nested-if" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. Input: Get age and convert to integer</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;How old are you? &quot;</span><span class="p">))</span>
+<span class="c1"># 2. Input: Get ID status (string input)</span>
+<span class="n">has_id</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Do you have ID? (y/n): &quot;</span><span class="p">)</span>
+
+<span class="c1"># 3. Decision Hierarchy (Outer): Check the primary requirement (age)</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="c1"># 4. Decision Hierarchy (Inner): Check the secondary requirement (ID)</span>
+    <span class="k">if</span> <span class="n">has_id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="c1"># 5. Output: Requirements met</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You can enter.&quot;</span><span class="p">)</span> <span class="c1"># Example Output (True/True): You can enter.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># 6. Output: Secondary requirement failed</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You need ID.&quot;</span><span class="p">)</span> <span class="c1"># Example Output (True/False): You need ID.</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># 7. Output: Primary requirement failed</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You must be of age to enter.&quot;</span><span class="p">)</span> <span class="c1"># Example Output (False): You must be of age to enter.</span>
+</code></pre></div>
+<p>Explanation:</p>
+<ul>
+<li>Nested <code>if</code> statements are <code>if</code> blocks inside another <code>if</code>.</li>
+<li>The inner condition is only checked if the outer condition is True.</li>
+<li>They are used to establish sequential or hierarchical requirements.</li>
+</ul>
+</details>
+<details class="question">
+<summary>4. Short Practice Exercises</summary>
+<h3 id="41-predict-the-output-ifelse">4.1. Predict the Output (<code>if/else</code>)<a class="headerlink" href="#41-predict-the-output-ifelse" title="Permanent link">&para;</a></h3>
+<p>What will be printed by the following code?</p>
+<div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adult&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minor&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p><code>"Minor"</code>.</p>
+<p><em>Explanation</em>: The condition <code>age &gt;= 18</code> is False, so the <code>else</code> block executes.</p>
+</details>
+<h3 id="42-nested-if">4.2. Nested <code>if</code><a class="headerlink" href="#42-nested-if" title="Permanent link">&para;</a></h3>
+<p>Predict the output of the following nested if structure:</p>
+<div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">has_id</span> <span class="o">=</span> <span class="s2">&quot;n&quot;</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">has_id</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Can enter&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Need ID&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too young&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p><code>"Need ID"</code></p>
+<p><em>Explanation</em>: The outer condition <code>age &gt;= 18</code> is True, so the inner <code>if</code> is evaluated. <code>has_id.lower() == "y"</code> is False, so the inner <code>else</code> executes.</p>
+</details>
+<h3 id="43-correct-the-code">4.3. Correct the Code<a class="headerlink" href="#43-correct-the-code" title="Permanent link">&para;</a></h3>
+<p>The following code is intended to print <code>"Eligible"</code> if <code>score &gt;= 50</code> and <code>"Not eligible"</code> otherwise. Correct it:</p>
+<div class="highlight"><pre><span></span><code><span class="n">score</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">50</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eligible&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not eligible&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<div class="highlight"><pre><span></span><code><span class="n">score</span> <span class="o">=</span> <span class="mi">45</span>
+<span class="k">if</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Eligible&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not eligible&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><em>Explanation</em>: The <code>if</code> line needs a colon, and both blocks must be properly indented.</p>
+</details>
+<h3 id="44-logical-sequence-check">4.4. Logical Sequence Check<a class="headerlink" href="#44-logical-sequence-check" title="Permanent link">&para;</a></h3>
+<p>Read the code and indicate what will be printed:</p>
+<div class="highlight"><pre><span></span><code><span class="n">balance</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">pin_entered</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">balance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">pin_entered</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Withdrawal allowed&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter PIN&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficient funds&quot;</span><span class="p">)</span>
+</code></pre></div>
+<details class="note">
+<summary>Show solution</summary>
+<p><code>"Enter PIN"</code></p>
+<p><em>Explanation</em>: Balance is positive, so the outer <code>if</code> passes. PIN was not entered, so the inner <code>else</code> executes.</p>
+</details>
+</details>
+<details class="tip">
+<summary>5. Google Colab: Try It Yourself</summary>
+<p>Practice nested and multiple conditional structures (<code>if-elif-else</code>) with this Colab notebook:</p>
+<p>👉 <a href="https://colab.research.google.com/github/JuanLealTec/python-refresher/blob/main/docs/assets/notebooks/08_nested_multiple_conditionals.ipynb" rel="noopener" target="_blank">Open the Nested &amp; Multiple Conditionals Colab notebook ↗</a></p>
+<p><span style="color:#1a73e8;"><strong>First time using Google Colab?</strong></span> <a href="../colab_instructions/" target="_blank" rel="noopener">Read the quick beginner guide ↗</a></p>
+</details>
+<details class="question">
+<summary>6. Mini-Quiz</summary>
+<h3 id="61-what-happens-when-a-condition-in-an-ifelifelse-chain-evaluates-to-true">6.1. What happens when a condition in an <code>if/elif/else</code> chain evaluates to True?<a class="headerlink" href="#61-what-happens-when-a-condition-in-an-ifelifelse-chain-evaluates-to-true" title="Permanent link">&para;</a></h3>
+<p>A) All remaining conditions are evaluated.<br>
+B) The program stops immediately.<br>
+C) The rest of the chain is skipped.<br>
+D) Only the else part runs.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) The rest of the chain is skipped.</p>
+</details>
+<h3 id="62-which-structure-allows-a-second-decision-only-after-a-primary-condition-is-true">6.2. Which structure allows a second decision only after a primary condition is True?<a class="headerlink" href="#62-which-structure-allows-a-second-decision-only-after-a-primary-condition-is-true" title="Permanent link">&para;</a></h3>
+<p>A) Compound conditional<br>
+B) <code>if/elif/else</code><br>
+C) Nested if<br>
+D) <code>or</code> operator</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>C) Nested if</p>
+</details>
+<h3 id="63-what-will-the-following-code-print">6.3. What will the following code print?<a class="headerlink" href="#63-what-will-the-following-code-print" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">8</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>A) A<br>
+B) B<br>
+C) C<br>
+D) ABC</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>A) A</p>
+</details>
+<h3 id="64-what-does-elif-stand-for-in-python">6.4. What does <code>elif</code> stand for in Python?<a class="headerlink" href="#64-what-does-elif-stand-for-in-python" title="Permanent link">&para;</a></h3>
+<p>A) else loop<br>
+B) else if<br>
+C) else function<br>
+D) if else</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>B) else if</p>
+</details>
+<h3 id="65-when-is-it-better-to-use-an-ifelifelse-structure-instead-of-a-nested-if">6.5. When is it better to use an <code>if/elif/else</code> structure instead of a nested <code>if</code>?<a class="headerlink" href="#65-when-is-it-better-to-use-an-ifelifelse-structure-instead-of-a-nested-if" title="Permanent link">&para;</a></h3>
+<p>A) When you want all conditions to be checked even after one is true.<br>
+B) When the conditions are not mutually exclusive.<br>
+C) When you need only a single level of decision-making.<br>
+D) When only one condition should be true and trigger an action.</p>
+<details class="info">
+<summary>Show answer</summary>
+<p>D) When only one condition should be true and trigger an action.</p>
+</details>
+</details>
+<details class="warning">
+<summary>7. Common Mistakes</summary>
+<ul>
+<li>Using multiple independent <code>if</code> statements instead of an <code>if/elif/else</code> chain when only one path should execute.</li>
+<li>Incorrect indentation in nested if blocks.</li>
+<li>Skipping type conversion when using <code>input()</code> for numerical comparisons.</li>
+<li>Assuming inner <code>if</code> runs without the outer condition being True.</li>
+</ul>
+</details>
+<details class="note">
+<summary>8. Summary Diagram</summary>
+<pre class="mermaid"><code>mindmap
+  root((Nested &amp; Multiple Conditionals))
+    Multiple Conditions if/elif/else
+      Sequence of checks
+      First True condition runs and rest skipped
+    Nested Conditions
+      Hierarchical evaluation
+      Inner if executes only if outer is True
+    Key Points
+      Correct evaluation order
+      Proper indentation</code></pre>
+</details>
+<details class="tip">
+<summary>9. Optional Extensions</summary>
+<ul>
+<li>Write a program that asks for a number and prints whether it is positive, negative, or zero using nested <code>if</code> statements.</li>
+<li>Modify Commented Example 3.1 to include a "Merit Scholarship" category for averages between 90 and 94 and print the corresponding scholarship.</li>
+<li>Create a program that evaluates multiple conditions with a combination of nested <code>if</code> statements and logical operators, e.g., age, membership status and score to decide eligibility for a program.</li>
+</ul>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>
