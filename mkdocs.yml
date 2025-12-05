@@ -1,0 +1,61 @@
+site_name: Python Refresher
+site_url: https://juanlealtec.github.io/python-refresher/
+site_description: "A concise and practical review of fundamental Python concepts, computational thinking, and best programming practices for advanced high-school and undergraduate students."
+repo_url: https://github.com/JuanLealTec/python-refresher
+use_directory_urls: true
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - search.share
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 2
+  - attr_list
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.arithmatex
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist
+
+nav:
+  - Home: index.md
+  - 1. Computational Thinking: 01_principles.md
+  - 2. Input-Process-Output: 02_ipo.md
+  - 3. Algorithms: 03_algorithms.md
+  - 4. Variables & Constants: 04_variables.md
+  - 5. Data Types: 05_data_types.md
+  - 6. Arithmetic Operators: 06_arithmetic.md
+  - 7. Conditionals & Relational Operators: 07_conditionals.md
+  - 8. Nested & Multiple Conditionals: 08_nested_multiple_conditionals.md
+  - 9. Compund Conditions: 09_compound_conditions.md
+  - 10. While Loop: 10_while_loop.md
+  - 11. For Loop: 11_for_loop.md
+  - 12. Final Challenge: 12_final_challenge.md
+  - Resources:
+    - Glossary: glossary.md
+    - Google Colab – Beginner Guide: colab_instructions.md
+    - Programming Best Practices: best_practices.md
+    - References: references.md
