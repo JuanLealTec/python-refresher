@@ -13,8 +13,7 @@ These structures are essential for handling complex and dynamic application deve
 
     ### 1.1. Multiple Conditionals
 
-    This structure, using the `if/elif/else` chain, is used to handle multiple mutually exclusive cases (only one can be true). Conditions are evaluated in sequence from top to bottom.
-    The first condition that evaluates to `True` executes its corresponding block, and the rest of the entire chain is immediately skipped.
+    This structure, using the `if/elif/else` chain, is used to handle multiple mutually exclusive cases (only one can be true). While you can only have one `if` and one `else`, you can include as many `elif` blocks as needed to evaluate multiple conditions. Conditions are evaluated in sequence from top to bottom.  
 
     Exclusive Sequence Example:
 
@@ -32,7 +31,7 @@ These structures are essential for handling complex and dynamic application deve
         # Checked last (only if all 'if/elif' conditions were False).
         print("Grade C") 
     ```
-    Key Takeaway: Using `elif` prevents subsequent conditions from being checked once a match is found, ensuring only one path runs.
+    Key Takeaway: Only the first `True` condition executes and the rest are skipped, ensuring only one path runs.
 
     ### 1.2. Nested Conditionals
 
@@ -106,13 +105,16 @@ These structures are essential for handling complex and dynamic application deve
     # 2. Decision Sequence: Check the highest scholarship threshold first
     if average >= 95:
         # 3. Output: Excellence awarded
-        print("Excellence Scholarship") # Example Output: Excellence Scholarship
+        print("Excellence Scholarship") 
+    elif average >= 90:
+        # 4. You can add as many elif blocks as needed for more categories
+        print("Honor Scholarship")
     elif average >= 85:
-        # 4. Output: Check the next threshold only if the previous was False
-        print("Academic Scholarship") # Example Output: Academic Scholarship
+        # 5. This is only checked if the previous conditions were False
+        print("Academic Scholarship") 
     else:
-        # 5. Output: Executes if all preceding conditions were False
-        print("No Scholarship") # Example Output: No Scholarship
+        # 6. Output: Executes if all preceding conditions were False
+        print("No Scholarship")
     ```
 
     Explanation:
@@ -212,26 +214,12 @@ These structures are essential for handling complex and dynamic application deve
 
         *Explanation*: The `if` line needs a colon, and both blocks must be properly indented.
 
-    ### 4.4. Logical Sequence Check
+    ### 4.4. Multiple elif Check
 
-    Read the code and indicate what will be printed:
-
-    ```python
-    balance = 100
-    pin_entered = False
-    if balance > 0:
-        if pin_entered:
-            print("Withdrawal allowed")
-        else:
-            print("Enter PIN")
-    else:
-        print("Insufficient funds")
-    ```
+    Is there a limit to how many `elif` statements you can use in a single `if/elif/else` structure?
 
     ??? note "Show solution"
-        `"Enter PIN"`
-
-        *Explanation*: Balance is positive, so the outer `if` passes. PIN was not entered, so the inner `else` executes.
+        No, you can chain as many `elif` blocks as needed to handle multiple mutually exclusive conditions.
 
 ??? tip "5. Google Colab: Try It Yourself"
 

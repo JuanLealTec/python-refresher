@@ -46,15 +46,10 @@ For an effective review, we suggest following the logical order of the modules. 
 - Author: Juan Carlos Leal González  
 - Email: juan_leal@tec.mx
 
-### Details
+### Version Control
 
-- Preparation Date: December 2025  
-- Course Version: v1.0.0 - December 2025  
-
-### Changelog
-
-- v1.0 - Initial project release (December 2025)  
-- [Future updates will be listed here...]  
+- Current Version: v1.0.1 (January 2026)
+- Last Updated: January 2026
 
 ## Academic Disclaimer
 

@@ -38,7 +38,7 @@ The site currently includes:
 11. For Loop
 12. Final Challenge
 
-### Aditional Resources
+### Additional Resources
 
 - Glossary
 - Google Colab - Beginner Guide
@@ -112,6 +112,17 @@ python-refresher/
         ├── img/             # Images used in the markdown files
         └── notebooks/       # Google Colab notebooks (.ipynb files)
 ```
+
+---
+
+## Changelog
+
+- v1.0.1 (Jan 2026):
+   - 08_nested_multiple_conditionals.md: Added explicit explanation and exercises for multiple `elif` blocks.
+   - 09_compound_conditions.md: Updated video and content to include the `not` operator.
+   - index.md: Refactored authorship and versioning into a simplified "Version Control" section.
+- v1.0.0 (Dec 2025):
+   - Initial project release.
 
 ---
 
