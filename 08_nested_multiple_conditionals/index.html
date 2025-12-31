@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -808,8 +808,7 @@
 <details class="info">
 <summary>1. Exclusive vs. Hierarchical Logic</summary>
 <h3 id="11-multiple-conditionals">1.1. Multiple Conditionals<a class="headerlink" href="#11-multiple-conditionals" title="Permanent link">&para;</a></h3>
-<p>This structure, using the <code>if/elif/else</code> chain, is used to handle multiple mutually exclusive cases (only one can be true). Conditions are evaluated in sequence from top to bottom.
-The first condition that evaluates to <code>True</code> executes its corresponding block, and the rest of the entire chain is immediately skipped.</p>
+<p>This structure, using the <code>if/elif/else</code> chain, is used to handle multiple mutually exclusive cases (only one can be true). While you can only have one <code>if</code> and one <code>else</code>, you can include as many <code>elif</code> blocks as needed to evaluate multiple conditions. Conditions are evaluated in sequence from top to bottom.  </p>
 <p>Exclusive Sequence Example:</p>
 <p><div class="highlight"><pre><span></span><code><span class="n">score</span> <span class="o">=</span> <span class="mi">85</span>
 
@@ -824,7 +823,7 @@ The first condition that evaluates to <code>True</code> executes its correspondi
     <span class="c1"># Checked last (only if all &#39;if/elif&#39; conditions were False).</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grade C&quot;</span><span class="p">)</span> 
 </code></pre></div>
-Key Takeaway: Using <code>elif</code> prevents subsequent conditions from being checked once a match is found, ensuring only one path runs.</p>
+Key Takeaway: Only the first <code>True</code> condition executes and the rest are skipped, ensuring only one path runs.</p>
 <h3 id="12-nested-conditionals">1.2. Nested Conditionals<a class="headerlink" href="#12-nested-conditionals" title="Permanent link">&para;</a></h3>
 <p>A <strong>nested <code>if</code></strong> statement places one <code>if</code> inside another (<code>if</code>, <code>elif</code>, or <code>else</code>) block. This creates a multi-level, hierarchical decision: the inner condition is only evaluated if the outer condition has already been confirmed as <code>True</code>.</p>
 <p>Hierarchical Dependence Example:</p>
@@ -883,13 +882,16 @@ Key Takeaway: Using <code>elif</code> prevents subsequent conditions from being 
 <span class="c1"># 2. Decision Sequence: Check the highest scholarship threshold first</span>
 <span class="k">if</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="p">:</span>
     <span class="c1"># 3. Output: Excellence awarded</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Excellence Scholarship&quot;</span><span class="p">)</span> <span class="c1"># Example Output: Excellence Scholarship</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Excellence Scholarship&quot;</span><span class="p">)</span> 
+<span class="k">elif</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+    <span class="c1"># 4. You can add as many elif blocks as needed for more categories</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Honor Scholarship&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">average</span> <span class="o">&gt;=</span> <span class="mi">85</span><span class="p">:</span>
-    <span class="c1"># 4. Output: Check the next threshold only if the previous was False</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Academic Scholarship&quot;</span><span class="p">)</span> <span class="c1"># Example Output: Academic Scholarship</span>
+    <span class="c1"># 5. This is only checked if the previous conditions were False</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Academic Scholarship&quot;</span><span class="p">)</span> 
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># 5. Output: Executes if all preceding conditions were False</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Scholarship&quot;</span><span class="p">)</span> <span class="c1"># Example Output: No Scholarship</span>
+    <span class="c1"># 6. Output: Executes if all preceding conditions were False</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No Scholarship&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Explanation:</p>
 <ul>
@@ -973,22 +975,11 @@ Key Takeaway: Using <code>elif</code> prevents subsequent conditions from being 
 </code></pre></div>
 <p><em>Explanation</em>: The <code>if</code> line needs a colon, and both blocks must be properly indented.</p>
 </details>
-<h3 id="44-logical-sequence-check">4.4. Logical Sequence Check<a class="headerlink" href="#44-logical-sequence-check" title="Permanent link">&para;</a></h3>
-<p>Read the code and indicate what will be printed:</p>
-<div class="highlight"><pre><span></span><code><span class="n">balance</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">pin_entered</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="k">if</span> <span class="n">balance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">pin_entered</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Withdrawal allowed&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enter PIN&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Insufficient funds&quot;</span><span class="p">)</span>
-</code></pre></div>
+<h3 id="44-multiple-elif-check">4.4. Multiple elif Check<a class="headerlink" href="#44-multiple-elif-check" title="Permanent link">&para;</a></h3>
+<p>Is there a limit to how many <code>elif</code> statements you can use in a single <code>if/elif/else</code> structure?</p>
 <details class="note">
 <summary>Show solution</summary>
-<p><code>"Enter PIN"</code></p>
-<p><em>Explanation</em>: Balance is positive, so the outer <code>if</code> passes. PIN was not entered, so the inner <code>else</code> executes.</p>
+<p>No, you can chain as many <code>elif</code> blocks as needed to handle multiple mutually exclusive conditions.</p>
 </details>
 </details>
 <details class="tip">
@@ -1140,10 +1131,10 @@ D) When only one condition should be true and trigger an action.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
